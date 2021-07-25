@@ -16,5 +16,9 @@ app.config['SQLALCHEMY_DATABASE_URI']="sqlite:///site.db"
 db=SQLAlchemy(app) #we have a database instance 
 bcrypt=Bcrypt(app) #to intialise this bcrypt
 login_manager=LoginManager(app)
+login_manager.login_view='login'
+#The name of the view to redirect to when the user needs to log in. (This can be an absolute URL as well, 
+# if your authentication machinery is external to your application.)
+login_manager.login_message_category='info'
 
 from flask_blog import routes
